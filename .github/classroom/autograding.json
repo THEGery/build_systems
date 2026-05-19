@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Test if `calculate_resistance` is built via make",
+      "setup": "make -j4",
+      "run": "./calculate_resistance",
+      "timeout": 2.5,
+      "points": 1
+    },
+    {
+      "name": "Test if `ims` is built via make",
+      "setup": "make -j4",
+      "run": "ls ims",
+      "timeout": 2.5,
+      "points": 1
+    },
+    {
+      "name": "Test if `calculate_resistance` is built via cmake",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "build/calculate_resistance",
+      "timeout": 2.5,
+      "points": 1
+    },
+    {
+      "name": "Test if `ims` is built via cmake",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "ls ims",
+      "timeout": 2.5,
+      "points": 1
+    },
+    {
+      "name": "Ensure that the README is updated for make",
+      "run": "grep make README.md",
+      "timeout": 0.2,
+      "points": 1
+    },
+    {
+      "name": "Ensure that the README is updated for cmake",
+      "run": "grep cmake README.md",
+      "timeout": 0.2,
+      "points": 1
+    }
+  ]
+}

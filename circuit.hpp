@@ -6,7 +6,7 @@
 
 struct Circuit {
     std::vector<double> resistance;
-    bool is_paralel;
+    bool is_parallel;
 };
 
 // return the total resistance of the circuit

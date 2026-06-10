@@ -57,3 +57,31 @@ Circuit read_circuit() {
 
     return new_circuit;
 }
+
+
+void draw_circuit(const Circuit& c) {
+    if (c.is_paralel) {
+        //  ┌[220Ω]┐
+        // ─┼[330Ω]┼─
+        //  └[220Ω]┘
+        std::cout << "Parallel connection:\n";
+        for (double r : c.resistance) {
+            if (c.resistance[0]) {
+                std::cout << "┌[" << r << "Ω]┐\n";
+            }
+            else if (c.resistance[-1]) {
+                std::cout << "└[" << r << "Ω]┘\n";
+            }
+            else {
+                std::cout << "─┼[" << r << "Ω]┼─\n";
+            }
+        }
+    }
+    else {
+        // -[220Ω]-[330Ω]-[220Ω]-
+        std::cout << "Series connection:\n";
+        for (double r : c.resistance) {
+            std::cout << "-[" << r << "Ω]-\n";
+        }
+    }
+}

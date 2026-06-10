@@ -85,3 +85,22 @@ void draw_circuit(const Circuit& c) {
         }
     }
 }
+
+
+void print_circuit(const Circuit& c) {
+    if (c.is_paralel) {
+        std::cout << "Parallel connection:\n";
+        for (double r : c.resistance) {
+            std::cout << r << "Ω\n";
+        }
+    }
+    else {
+        std::cout << "Series connection:\n";
+        for (double r : c.resistance) {
+            std::cout << r << "Ω\n";
+        }
+    }
+
+    double total = calc_circuit_resistance(c);
+    std::cout << "Total resistance: " << total << "Ω" << std::endl;
+}

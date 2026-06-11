@@ -56,6 +56,13 @@ void print_items(const std::vector<Item>& items) {
 
 void cli() {
     while (true) {
-        // TODO: switch case for options.
+        // TODO: switch case for options:
+        // `a` -> create a new item and add it to the inventory array
+        // `c` -> show the number of capacitors
+        // `e` -> exit the program
+        // `i n` -> show the n-th item (0-indexed) of the inventory array
+        // `h` -> show this help text
+        // `l` -> show the list of items
+        // `r` -> show the number of resistors
     }
 }

@@ -94,14 +94,14 @@ void cli() {
 
 // Helper functions
 void help() {
-    std::cout << "\n====== Help menu ======";
-    std::cout << "a -> create a new item and add it to the inventory array\n";
-    std::cout << "c -> show the number of capacitors\n";
-    std::cout << "e -> exit the program\n";
-    std::cout << "i n -> show the n-th item (0-indexed) of the inventory array\n";
-    std::cout << "h -> show this help text\n";
-    std::cout << "l -> show the list of items\n";
-    std::cout << "r -> show the number of resistors\n\n";
+    std::cout << "======================== Help menu ========================\n\n";
+    std::cout << "    a     ->  create a new item and add it to the inventory array\n";
+    std::cout << "    c     ->  show the number of capacitors\n";
+    std::cout << "    e     ->  exit the program\n";
+    std::cout << "    i     ->  show the n-th item (0-indexed) of the inventory array\n";
+    std::cout << "    h     ->  show this help text\n";
+    std::cout << "    l     ->  show the list of items\n";
+    std::cout << "    r     ->  show the number of resistors\n";
 }
 
 

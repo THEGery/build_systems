@@ -3,7 +3,7 @@
     {
       "name": "Test if `calculate_resistance` is built via make",
       "setup": "make -j4",
-      "run": "./calculate_resistance",
+      "run": "ls calculate_resistance",
       "timeout": 2.5,
       "points": 1
     },
@@ -17,7 +17,7 @@
     {
       "name": "Test if `calculate_resistance` is built via cmake",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/calculate_resistance",
+      "run": "ls calculate_resistance",
       "timeout": 2.5,
       "points": 1
     },

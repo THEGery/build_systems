@@ -1,6 +1,35 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/EoSvsaKu)
 # Working with Multiple Files - Build Systems
 
+## Compilation Options
+
+### Manual Makefile
+
+The project can be compiled with the Makefile by using 
+the `make` command in the root folder for in-source build. 
+This is the default (compile all targets) method, but other than that, 
+it's possible to use a combination of commands like: 
+- `make all` - compile all targets
+- `make ims` - to compile only the ims executable, 
+    or the other executable target (`make calculate_resistance`)
+- `make circuit.o` - (or any other `.o` file) to create individual object files.
+
+### CMakeLists
+
+With `CMakeLists.txt` it is easier to manage larger project, 
+while cmake takes the heavy lifting. It will neatly organize the build files 
+in a `build` folder, keeping the root folder clean. 
+It also takes care of the header inclusions. Optionally one can add 
+the header files as part of the `add_executable(...)` command.
+
+Building using Cmake goes as follows:
+
+- `mkdir build` & `cd build`
+- `cmake ..` - to generate the necessary files
+- `cmake --build . -j8` to run the build
+
+---
+
 <!-- TODO: create autotests for the non CLI code (use amalgamated catch) -->
 <!-- g++ -c catch_amalgamated.cpp  // ... -->
 <!-- TODO: add autotests to classroom definition -->

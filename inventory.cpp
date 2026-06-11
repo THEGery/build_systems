@@ -2,7 +2,7 @@
 
 
 std::size_t count_resistors(const std::vector<Item>& items) {
-    std::size_t resistor_count;
+    std::size_t resistor_count = 0;
     char type[] = "resistor";
 
     for (std::size_t i = 0; i < items.size(); ++i) {
@@ -15,7 +15,7 @@ std::size_t count_resistors(const std::vector<Item>& items) {
 
 
 std::size_t count_capacitors(const std::vector<Item>& items) {
-    std::size_t capacitor_count;
+    std::size_t capacitor_count = 0;
     char type[] = "capacitor";
 
     for (std::size_t i = 0; i < items.size(); ++i) {

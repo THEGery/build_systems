@@ -20,7 +20,7 @@ void add_item(std::vector<Item>& items) {
 
     bool matching = false;
     // if type, value, unit match add new item quantity to nth item's quantity
-    for (int i = 0; i < items.size(); ++i) {
+    for (std::size_t i = 0; i < items.size(); ++i) {
         if (items[i].component_type == new_item.component_type && 
             items[i].component_value == new_item.component_value && 
             items[i].unit == new_item.unit) {
@@ -45,7 +45,7 @@ void print_item(Item i) {
 
 
 void print_items(const std::vector<Item>& items) {
-    for (int i = 0; i < items.size(); ++i) {
+    for (std::size_t i = 0; i < items.size(); ++i) {
         std::cout << "Component type: " << items[i].component_type << "\n";
         std::cout << "Quantity: " << items[i].quantity << "\n";
         std::cout << "Component value: " << items[i].component_value << "\n";
@@ -106,11 +106,11 @@ void help() {
 
 
 void item_index(const std::vector<Item>& items) {
-    uint index;
+    std::size_t index;
     std::cout << "Type a number to show that item in the list:\n";
     std::cin >> index;
 
-    for (int i = 0; i < items.size(); ++i) {
+    for (std::size_t i = 0; i < items.size(); ++i) {
         if (i == index) {
             print_item(items[i]);
         }

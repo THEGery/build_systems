@@ -28,4 +28,10 @@ void print_items(const std::vector<Item>& items);
 // `r` -> show the number of resistors
 void cli();
 
+
+// Helper Functions
+void help();
+
+void item_index(const std::vector<Item>& items);
+
 #endif

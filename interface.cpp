@@ -6,8 +6,9 @@
 void add_item(std::vector<Item>& items) {
     Item new_item;
 
-    std::cout << "Add a new item to the items list.\nComponent type:\n";
-
+    std::cout << "Add a new item to the items list.\n";
+    std::cout << "=================================\n";
+    std::cout << "Component type:\n";
     std::cin >> new_item.component_type;
     std::cout << "Quantity:\n";
     std::cin >> new_item.quantity;
@@ -36,7 +37,8 @@ void add_item(std::vector<Item>& items) {
 
 
 void print_item(Item i) {
-    std::cout << "Last added item:\n";
+    std::cout << "Selected item:\n";
+    std::cout << "==============\n";
     std::cout << "Component type: " << i.component_type << "\n";
     std::cout << "Quantity: " << i.quantity << "\n";
     std::cout << "Component value: " << i.component_value << "\n";
@@ -49,7 +51,7 @@ void print_items(const std::vector<Item>& items) {
         std::cout << "Component type: " << items[i].component_type << "\n";
         std::cout << "Quantity: " << items[i].quantity << "\n";
         std::cout << "Component value: " << items[i].component_value << "\n";
-        std::cout << "Unit: " << items[i].unit << "\n";
+        std::cout << "Unit: " << items[i].unit << "\n\n";
     }
     std::cout << std::endl;
 }
@@ -57,57 +59,64 @@ void print_items(const std::vector<Item>& items) {
 
 void cli() {
     std::vector<Item> items;
-
-    while (true) {
+    bool run = true;
+    while (run) {
         char mode;
+
+        std::cout << "Choos what you would like to do. (Type \"h\" for help): \n";
+        std::cout << "========================================================\n";
 
         std::cin >> mode;
 
         switch (mode) {
             case 'a':
-                add_item(items);
+                add_item(items); // done
                 break;
             case 'c':
-                count_capacitors(items);
+                print_count(count_capacitors(items), 'r'); // done
                 break;
             case 'e':
+                run = false; // done
                 break;
             case 'i':
                 item_index(items);
                 break;
             case 'h':
-                help();
+                help(); // done
                 break;
             case 'l':
-                print_items(items);
+                print_items(items); // done
                 break;
             case 'r':
-                count_resistors(items);
+                print_count(count_resistors(items), 'r'); // done
                 break;
             default:
-                std::cout << "Invalid option. Type \"h\" for help.";
+                std::cout << "###    Invalid option. Type \"h\" for help.    ###\n";
+                std::cout << "==================================================\n";
         }
+
         // while (std::cin.get() != '\n');
-        break;
     }
 }
 
 // Helper functions
 void help() {
-    std::cout << "======================== Help menu ========================\n\n";
-    std::cout << "    a     ->  create a new item and add it to the inventory array\n";
-    std::cout << "    c     ->  show the number of capacitors\n";
-    std::cout << "    e     ->  exit the program\n";
-    std::cout << "    i     ->  show the n-th item (0-indexed) of the inventory array\n";
-    std::cout << "    h     ->  show this help text\n";
-    std::cout << "    l     ->  show the list of items\n";
-    std::cout << "    r     ->  show the number of resistors\n";
+    std::cout << "============================ Help menu ============================\n\n";
+    std::cout << "    a  ->  create a new item and add it to the inventory array\n";
+    std::cout << "    c  ->  show the number of capacitors\n";
+    std::cout << "    e  ->  exit the program\n";
+    std::cout << "    i  ->  show the n-th item (0-indexed) of the inventory array\n";
+    std::cout << "    h  ->  show this help text\n";
+    std::cout << "    l  ->  show the list of items\n";
+    std::cout << "    r  ->  show the number of resistors\n\n";
 }
 
 
 void item_index(const std::vector<Item>& items) {
     std::size_t index;
-    std::cout << "Type a number to show that item in the list:\n";
+    std::cout << "Type a number to show item at that index: \n";
+    std::cout << "The list has: " << items.size() << "elements (0 indexed)\n";
+    std::cout << "==========================================\n";
     std::cin >> index;
 
     for (std::size_t i = 0; i < items.size(); ++i) {
@@ -116,4 +125,13 @@ void item_index(const std::vector<Item>& items) {
         }
     }
     std::cout << std::endl;
+}
+
+void print_count(std::size_t count, char type) {
+    if (type == 'r'){
+        std::cout << "Number of resistors: " << count << std::endl;
+    }
+    else if (type == 'c') {
+        std::cout << "Number of capacitors: " << count << std::endl;
+    }
 }

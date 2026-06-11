@@ -34,4 +34,6 @@ void help();
 
 void item_index(const std::vector<Item>& items);
 
+void print_count(std::size_t count, char type);
+
 #endif

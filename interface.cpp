@@ -1,4 +1,5 @@
 #include "interface.hpp"
+#include "inventory.hpp"
 #include <iostream>
 
 
@@ -55,14 +56,64 @@ void print_items(const std::vector<Item>& items) {
 
 
 void cli() {
+    std::vector<Item> items;
+
     while (true) {
-        // TODO: switch case for options:
-        // `a` -> create a new item and add it to the inventory array
-        // `c` -> show the number of capacitors
-        // `e` -> exit the program
-        // `i n` -> show the n-th item (0-indexed) of the inventory array
-        // `h` -> show this help text
-        // `l` -> show the list of items
-        // `r` -> show the number of resistors
+        char mode;
+
+        std::cin >> mode;
+
+        switch (mode) {
+            case 'a':
+                add_item(items);
+                break;
+            case 'c':
+                count_capacitors(items);
+                break;
+            case 'e':
+                break;
+            case 'i':
+                item_index(items);
+                break;
+            case 'h':
+                help();
+                break;
+            case 'l':
+                print_items(items);
+                break;
+            case 'r':
+                count_resistors(items);
+                break;
+            default:
+                std::cout << "Invalid option. Type \"h\" for help.";
+        }
+        // while (std::cin.get() != '\n');
+        break;
     }
+}
+
+// Helper functions
+void help() {
+    std::cout << "\n====== Help menu ======";
+    std::cout << "a -> create a new item and add it to the inventory array\n";
+    std::cout << "c -> show the number of capacitors\n";
+    std::cout << "e -> exit the program\n";
+    std::cout << "i n -> show the n-th item (0-indexed) of the inventory array\n";
+    std::cout << "h -> show this help text\n";
+    std::cout << "l -> show the list of items\n";
+    std::cout << "r -> show the number of resistors\n\n";
+}
+
+
+void item_index(const std::vector<Item>& items) {
+    uint index;
+    std::cout << "Type a number to show that item in the list:\n";
+    std::cin >> index;
+
+    for (int i = 0; i < items.size(); ++i) {
+        if (i == index) {
+            print_item(items[i]);
+        }
+    }
+    std::cout << std::endl;
 }
